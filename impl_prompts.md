@@ -1,4 +1,4 @@
-I need you to gather comprehensive context about Github issue # _____ from my Alton09/MenuLens Github repository and create a detailed implementation plan. Follow these steps:
+I need you to gather comprehensive context about Github issue # _____ from my _____ Github repository and create a detailed implementation plan. Follow these steps:
 
 **Step 1: Gather Issue Context**
 - Use the Github CLI or REST API to retrieve all details from issue # _____, including:
