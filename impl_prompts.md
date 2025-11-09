@@ -21,6 +21,7 @@ I need you to gather comprehensive context about Github issue # _____ from my __
     - Current status and priority
     - Any linked issues or dependencies
     - List of all attachments
+    - Use all pull requests that are relevant to the issues, or if they mention any of the issues.
 
 **Step 2: Process Image Attachments**
 - If the issue has any image attachments (screenshots, diagrams, mockups, etc.):
