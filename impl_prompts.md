@@ -1,3 +1,16 @@
+# Implementation Planning Prompt
+
+<\!-- 
+This prompt helps AI assistants create comprehensive implementation plans from GitHub issues.
+It guides the AI to:
+1. Gather complete context from the issue (description, comments, labels, dependencies)
+2. Process any image attachments to extract visual requirements
+3. Create a detailed, low-level implementation plan with specific tasks and file changes
+4. Present the plan for review before making any code changes
+
+Use this when you want a thorough analysis and planning phase before starting implementation work.
+-->
+
 I need you to gather comprehensive context about Github issue # _____ from my _____ Github repository and create a detailed implementation plan. Follow these steps:
 
 **Step 1: Gather Issue Context**
