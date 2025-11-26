@@ -48,3 +48,25 @@ I need you to gather comprehensive context about Github issue # _____ from my __
 - Create a markdown file for this plan in the current directory
 - Include a summary of the issue context and any insights gained from image analysis
 - Wait for me to review the file before proceeding with any code changes
+
+
+[//]: # (Implements a plan from a file)
+I need you to implement the plan outlined in the file _____, starting specifically with Phase _____.
+
+Please follow this workflow for each task in Phase _____:
+
+1. **Read the implementation plan**: First, view the _____ file to understand Phase _____ tasks
+2. **Implement one task at a time**: Work on a single task from Phase _____, in the order they appear in the plan
+3. **Ensure compilation**: After making changes, verify that the code compiles successfully by running the appropriate build/compile command for this codebase
+4. **Fix compilation issues**: If there are any compilation errors, fix them before proceeding
+5. **Commit changes**: Once the code compiles successfully, commit the changes using the git tool with a concise one-line commit message that describes what was implemented
+6. **Wait for review**: After committing, stop and wait for my explicit approval before moving to the next task in Phase _____
+7. **Mark section completed**: After approval, mark the task (and phase if its the last task) complete in the implementation plan
+
+Important constraints:
+- Do NOT proceed to the next task until I explicitly tell you to continue
+- Do NOT implement multiple tasks in a single iteration
+- Do NOT skip the compilation verification step
+- Do NOT commit if there are compilation errors
+
+Start by reading the implementation plan file and then implement the first task in Phase _____.
