@@ -77,6 +77,7 @@ echo "Prompt: $PROMPT_ARG"
 # Allowed: git, gradle, adb, and standard file operations
 # Denied: dangerous git operations (force push, hard reset)
 claude -p "$PROMPT_ARG" \
+  --dangerously-skip-permissions \
   --allowedTools "Bash(git:*)" "Bash(./gradlew:*)" "Bash(gradle:*)" "Bash(adb:*)" "Bash(ls:*)" "Bash(mkdir:*)" "Bash(cp:*)" "Bash(mv:*)" "Read" "Edit" "Write" "Glob" "Grep" \
   --disallowedTools "Bash(git push --force:*)" "Bash(git push -f:*)"
 
