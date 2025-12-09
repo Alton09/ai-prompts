@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Script to build and install the app on a device using auggie in a worktree
-# This script creates a temporary worktree, runs auggie to build and install, then auto-deletes
+# Script to build and install the app on a device using Claude Code in a worktree
+# This script creates a temporary worktree, runs Claude Code to build and install, then auto-deletes
 
 set -e
 
@@ -17,5 +17,5 @@ PROMPT="Perform the following tasks:
 
 echo "Running build and install workflow in a temporary worktree..."
 
-"$SCRIPT_DIR/worktree-auggie.sh" "$PROMPT" -d
+"$SCRIPT_DIR/worktree-claude.sh" "$PROMPT" -d
 

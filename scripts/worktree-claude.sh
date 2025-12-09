@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Script to create a git worktree and run auggie CLI in non-interactive mode
-# Usage: ./scripts/worktree-auggie.sh <prompt> [new-branch-name] [worktree-path] [-d]
+# Script to create a git worktree and run Claude Code CLI in non-interactive mode
+# Usage: ./scripts/worktree-claude.sh <prompt> [new-branch-name] [worktree-path] [-d]
 
 set -e
 
@@ -25,14 +25,14 @@ done
 
 # Check if prompt is provided
 if [ -z "$PROMPT_ARG" ]; then
-    echo "Error: Auggie CLI prompt is required"
+    echo "Error: Claude Code prompt is required"
     echo "Usage: $0 <prompt> [new-branch-name] [worktree-path] [-d]"
     echo ""
     echo "Arguments:"
-    echo "  <prompt>           Required. The prompt string for auggie CLI"
+    echo "  <prompt>           Required. The prompt string for Claude Code"
     echo "  [new-branch-name]  Optional. Name for the new branch (default: <current-branch>-worktree-<random>)"
-    echo "  [worktree-path]    Optional. Path for the worktree (default: ../Android-worktree-<branch-name>)"
-    echo "  [-d]               Optional. Auto-delete worktree after auggie finishes"
+    echo "  [worktree-path]    Optional. Path for the worktree (default: ../worktree-<branch-name>)"
+    echo "  [-d]               Optional. Auto-delete worktree after Claude Code finishes"
     exit 1
 fi
 
@@ -48,7 +48,7 @@ else
     NEW_BRANCH="$BRANCH_ARG"
 fi
 
-WORKTREE_PATH="${WORKTREE_ARG:-../Android-worktree-$NEW_BRANCH}"
+WORKTREE_PATH="${WORKTREE_ARG:-../worktree-$NEW_BRANCH}"
 
 echo "Creating worktree from branch '$CURRENT_BRANCH' into new branch '$NEW_BRANCH'..."
 echo "Worktree path: $WORKTREE_PATH"
@@ -58,17 +58,22 @@ git worktree add -b "$NEW_BRANCH" "$WORKTREE_PATH" "$CURRENT_BRANCH"
 
 echo "Worktree created successfully at: $WORKTREE_PATH"
 
-# Copy secrets over and navigate to the worktree
-cp local.properties "$WORKTREE_PATH/local.properties"
+# Copy CLAUDE.md if it exists in the current directory
+if [ -f "CLAUDE.md" ]; then
+    cp -f CLAUDE.md "$WORKTREE_PATH/CLAUDE.md"
+    echo "Copied CLAUDE.md to worktree"
+fi
+
+# Navigate to the worktree
 cd "$WORKTREE_PATH"
 
-echo "Running auggie CLI in non-interactive mode..."
+echo "Running Claude Code in non-interactive mode..."
 echo "Prompt: $PROMPT_ARG"
 
-# Run auggie in non-interactive mode
-auggie "$PROMPT_ARG" --print
+# Run Claude Code in non-interactive mode
+claude -p "$PROMPT_ARG"
 
-echo "Auggie CLI finished."
+echo "Claude Code finished."
 
 # Auto-delete worktree if flag is set
 if [ "$AUTO_DELETE" = true ]; then
