@@ -58,6 +58,9 @@ git worktree add -b "$NEW_BRANCH" "$WORKTREE_PATH" "$CURRENT_BRANCH"
 
 echo "Worktree created successfully at: $WORKTREE_PATH"
 
+# Copy properties over and navigate to the worktree
+cp local.properties "$WORKTREE_PATH/local.properties"
+
 # Copy CLAUDE.md if it exists in the current directory
 if [ -f "CLAUDE.md" ]; then
     cp -f CLAUDE.md "$WORKTREE_PATH/CLAUDE.md"
