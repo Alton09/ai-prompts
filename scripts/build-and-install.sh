@@ -10,8 +10,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROMPT="Perform the following tasks:
 * Apply the stash with the description \"Debuggable automation build\"
 * Run ./gradlew :apps:BuyRent:assembleAutomation
-* Copy the built apk file into ~/Downloads with the name of the apk file matching the branch name
-* Run \"git checkout .\" and remove any un committed changes so the delete script can cleanup the branch and worktree"
+* Copy the built apk file into ~/Downloads with the name of the apk file matching the branch name"
 
 echo "Running build and install workflow in a temporary worktree..."
 

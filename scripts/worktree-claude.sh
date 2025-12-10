@@ -76,10 +76,7 @@ echo "Prompt: $PROMPT_ARG"
 # Run Claude Code in non-interactive mode with scoped permissions
 # Allowed: git, gradle, adb, and standard file operations
 # Denied: dangerous git operations (force push, hard reset)
-claude -p "$PROMPT_ARG" \
-  --dangerously-skip-permissions \
-  --allowedTools "Bash(git:*)" "Bash(./gradlew:*)" "Bash(gradle:*)" "Bash(adb:*)" "Bash(ls:*)" "Bash(mkdir:*)" "Bash(cp:*)" "Bash(mv:*)" "Read" "Edit" "Write" "Glob" "Grep" \
-  --disallowedTools "Bash(git push --force:*)" "Bash(git push -f:*)"
+claude -p "$PROMPT_ARG" --dangerously-skip-permissions
 
 echo "Claude Code finished."
 
@@ -87,7 +84,7 @@ echo "Claude Code finished."
 if [ "$AUTO_DELETE" = true ]; then
     echo "Auto-delete enabled. Cleaning up worktree..."
     cd -
-    git worktree remove "$WORKTREE_PATH"
+    git worktree remove "$WORKTREE_PATH" --force
     git branch -D "$NEW_BRANCH"
     echo "Worktree and branch '$NEW_BRANCH' deleted successfully."
 else
