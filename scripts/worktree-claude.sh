@@ -76,7 +76,7 @@ echo "Prompt: $PROMPT_ARG"
 # Run Claude Code in non-interactive mode with scoped permissions
 # Allowed: git, gradle, adb, and standard file operations
 # Denied: dangerous git operations (force push, hard reset)
-claude -p "$PROMPT_ARG" --dangerously-skip-permissions
+claude -p "$PROMPT_ARG" --dangerously-skip-permissions --verbose
 
 echo "Claude Code finished."
 

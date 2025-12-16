@@ -70,3 +70,6 @@ Important constraints:
 - Do NOT commit if there are compilation errors
 
 Start by reading the implementation plan file and then implement the first task in Phase _____.
+
+[//]: # (Implements a plan from a file)
+Lets create a new worktree and a new branch for this work off of the current git branch. Once done make sure the unit tests pass and @scripts/ci-checks.sh passes. If not, fix the errors.
